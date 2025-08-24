@@ -1,1 +1,8 @@
+{%with message=get_flashes_messages()%}
+{%if message%}  
+<div class="alert alert-success">
+    {{message}}
+</div>
+{%endif%}
+{%endwith%}
 <h1>Hello {{name}}</h1>

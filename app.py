@@ -6,6 +6,9 @@ def index():
     return 'Hello world!' 
 @app.route('/hello/<name>')
 def  hello(name):
+    if name != 'admin':
+        flash('You are not authorized to access this page.', 'error')
+        return redirect(url_for('index'))
     return render_template('hello.html', name=name) 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
